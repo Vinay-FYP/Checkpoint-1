@@ -4,30 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="100dp"
     tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/edtTxtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:hint="Name"
+        android:textColor="@color/purple_700"
+        android:textStyle="italic|bold" />
+
+    <Button
+        android:id="@+id/btnHello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTxtName"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="Say hello" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World"
-        android:layout_centerInParent="true"
-        android:textSize="24sp"
-        android:textStyle="italic|bold"
-        android:textColor="#378271"
-        android:id="@+id/txtWelcome"/>
-        //android:layout_centerHorizontal="true"
-        //android:layout_centerVertical="true"/>
+        android:layout_below="@+id/btnHello"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/txtHello"
+        android:text="Hello"
+        android:textSize="20dp" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Say HEllo"
-            android:layout_below="@+id/txtWelcome"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:background="@color/teal_700"
-            android:id="@+id/btnHello"/>
-
-            //android:onClick="onHelloBtnClicked"
-            />
 </RelativeLayout>
