@@ -1,11 +1,12 @@
-package com.example.regtutorial;
+package com.example.loginregister;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,21 +16,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onBtnRegister(View view){
-        //define text views
-        TextView txtFname = findViewById(R.id.txtFname);
-        TextView txtLname = findViewById(R.id.txtLname);
-        TextView txtEmail = findViewById(R.id.txtEmail);
-
-        //Define edit texts
-        EditText firstName = findViewById(R.id.editTextFname);
-        EditText lastName = findViewById(R.id.editTextLname);
-        EditText email = findViewById(R.id.editTextEmail);
-
-
-        //set the text off the text vies on the btn click for register
-        txtFname.setText("First Name : " + firstName.getText().toString());
-        txtLname.setText("Last Name : " + lastName.getText().toString());
-        txtEmail.setText("Email : " + email.getText().toString());
+    public void logout(View view){
+        FirebaseAuth.getInstance().signOut(); //sign out user
+        startActivity(new Intent(getApplicationContext(),Login.class));
+        finish();
     }
 }
