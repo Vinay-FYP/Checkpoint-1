@@ -1,24 +1,30 @@
-package com.example.loginregister;
+ package com.example.firebase_log_reg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
+ public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+     private TextView register;
 
-public class MainActivity extends AppCompatActivity {
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+         register = findViewById(R.id.register);
+         register.setOnClickListener(this);
+     }
 
-    public void logout(View view){
-        FirebaseAuth.getInstance().signOut(); //sign out user
-        startActivity(new Intent(getApplicationContext(),Login.class));
-        finish();
-    }
-}
+     @Override
+     public void onClick(View v) {
+         //if the register button is clicked
+         switch (v.getId()){
+             case R.id.register:
+                 startActivity(new Intent(this, RegisterUser.class));
+         }
+     }
+ }
