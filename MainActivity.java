@@ -1,30 +1,47 @@
- package com.example.firebase_log_reg;
+package com.example.uibasics;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.telecom.TelecomManager;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
- public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-     private TextView register;
+public class MainActivity extends AppCompatActivity {
+    boolean click = false;
 
-     @Override
-     protected void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-         setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-         register = findViewById(R.id.register);
-         register.setOnClickListener(this);
-     }
 
-     @Override
-     public void onClick(View v) {
-         //if the register button is clicked
-         switch (v.getId()){
-             case R.id.register:
-                 startActivity(new Intent(this, RegisterUser.class));
-         }
-     }
- }
+
+        //another way of creating on click listener
+        Button btnHello = findViewById(R.id.btnHello);
+        btnHello.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("Hello");
+                click = true;
+
+
+            }
+
+        });
+
+    }
+
+    //Create on click for button
+
+    /**
+     *    public void onHelloBtnClicked(View view){
+     *         TextView txtWelcome = findViewById(R.id.txtWelcome);
+     *         txtWelcome.setText("Hello this worked");
+     *     }
+     *
+     */
+
+}
